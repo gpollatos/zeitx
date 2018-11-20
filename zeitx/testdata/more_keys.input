@@ -1,0 +1,4 @@
+httpsrv:
+  listen: :8090
+mysql:
+  port: 3306
