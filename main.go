@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/gpollatos/zeitx-all/zeitx"
+	"github.com/gpollatos/zeitx/zeitx"
 )
 
 var (

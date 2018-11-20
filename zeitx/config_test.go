@@ -3,7 +3,7 @@ package zeitx_test
 import (
 	"testing"
 
-	"github.com/gpollatos/zeitx-all/zeitx"
+	"github.com/gpollatos/zeitx/zeitx"
 
 	"github.com/stretchr/testify/assert"
 )
