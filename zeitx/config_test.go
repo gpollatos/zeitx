@@ -1,8 +1,9 @@
 package zeitx_test
 
 import (
-	"laszlo/zeitx"
 	"testing"
+
+	"github.com/gpollatos/zeitx-all/zeitx"
 
 	"github.com/stretchr/testify/assert"
 )

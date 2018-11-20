@@ -2,10 +2,11 @@ package zeitx_test
 
 import (
 	"encoding/json"
-	"laszlo/zeitx"
 	"net/http"
 	"testing"
 	"time"
+
+	"github.com/gpollatos/zeitx-all/zeitx"
 
 	"github.com/stretchr/testify/assert"
 )

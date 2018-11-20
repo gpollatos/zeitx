@@ -2,12 +2,13 @@ package main
 
 import (
 	"flag"
-	"laszlo/zeitx"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/gpollatos/zeitx-all/zeitx"
 )
 
 var (
