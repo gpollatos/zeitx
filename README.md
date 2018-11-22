@@ -30,6 +30,9 @@ Date: Thu, 22 Nov 2018 13:37:24 GMT
 Content-Length: 19
 
 {"Version":"3.0.0"}%
+```
+
+```
 -$ curl -i http://localhost:8090\?pretty
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
