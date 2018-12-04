@@ -1,6 +1,7 @@
 package zeitx
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -36,17 +37,17 @@ func OkJSON(w http.ResponseWriter, r *http.Request, data interface{}) {
 func JSON(w http.ResponseWriter, r *http.Request, data interface{}, status int) {
 	vars := r.URL.Query()
 	pretty := vars["pretty"]
-	var (
-		js  []byte
-		err error
-	)
+	var err error
 	start := time.Now()
+
+	buffer := &bytes.Buffer{}
+	encoder := json.NewEncoder(buffer)
+	encoder.SetEscapeHTML(false)
+
 	if pretty != nil {
-		js, err = json.MarshalIndent(data, "", "    ")
 		w.Header().Set(XPrettyPrint, "1")
-	} else {
-		js, err = json.Marshal(data)
 	}
+	err = encoder.Encode(data)
 	if err != nil {
 		APIError(w, http.StatusInternalServerError, err.Error())
 		return
@@ -55,7 +56,7 @@ func JSON(w http.ResponseWriter, r *http.Request, data interface{}, status int) 
 	w.Header().Set(ContentType, ApplicationJSONCharsetUTF8)
 	start = time.Now()
 	w.WriteHeader(status)
-	w.Write(js)
+	w.Write(buffer.Bytes())
 	log.Printf("Wrote response in %fs", time.Since(start).Seconds())
 }
 
