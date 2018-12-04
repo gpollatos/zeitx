@@ -45,6 +45,7 @@ func JSON(w http.ResponseWriter, r *http.Request, data interface{}, status int) 
 	encoder.SetEscapeHTML(false)
 
 	if pretty != nil {
+		encoder.SetIndent("", "    ")
 		w.Header().Set(XPrettyPrint, "1")
 	}
 	err = encoder.Encode(data)
